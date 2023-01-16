@@ -1,5 +1,8 @@
 const question = document.getElementById('question');
 const choices = Array.from(document.getElementsByClassName('choice-text'));
+const questionCounterText = document.getElementById('questionCounter');
+const scoreText = document.getElementById('score');
+// const timeCounterText = document.getElementById('timeCounter')
 
 let currentQuestion = {};
 let acceptingAnswers = false;
@@ -69,6 +72,7 @@ getNewQuestion = () => {
     }
     
     questionCounter++;
+    questionCounterText.innerText = `${questionCounter}/${MAX_QUESTIONS}`;
     // Random order questions
     const questionIndex = Math.floor(Math.random() * availableQuesions.length);
     currentQuestion = availableQuesions[questionIndex];
@@ -82,7 +86,7 @@ getNewQuestion = () => {
     availableQuesions.splice(questionIndex, 1);
     acceptingAnswers = true;
 };
-// Choices function being either correct / incorrect
+// Choices function being either correct / 
 choices.forEach((choice) => {
     choice.addEventListener('click', (e) => {
         if (!acceptingAnswers) return;
@@ -102,5 +106,12 @@ choices.forEach((choice) => {
     }, 1000);
     });
 });
-
+var timeleft = 45;
+var downloadTimer = setInterval(function() {
+  timeleft--;
+    document.getElementById("timeCounter").textContent = timeleft;
+    if(timeleft <= 0) {
+        clearInterval(downloadTimer);
+        console.log(`SUBMIT`)
+    }},1000);
 startGame();

@@ -67,7 +67,9 @@ getNewQuestion = () => {
         //go to the end page
         return window.location.assign('/end.html');
     }
+    
     questionCounter++;
+    // Random order questions
     const questionIndex = Math.floor(Math.random() * availableQuesions.length);
     currentQuestion = availableQuesions[questionIndex];
     question.innerText = currentQuestion.question;
@@ -76,7 +78,7 @@ getNewQuestion = () => {
         const number = choice.dataset["number"];
         choice.innerText = currentQuestion["choice" + number];
     });
-
+    // Removes last questions from selectable questions
     availableQuesions.splice(questionIndex, 1);
     acceptingAnswers = true;
 };
@@ -88,7 +90,16 @@ choices.forEach((choice) => {
         acceptingAnswers = false;
         const selectedChoice = e.target;
         const selectedAnswer = selectedChoice.dataset['number'];
+
+        const classToApply =
+        selectedAnswer == currentQuestion.answer ? "correct" : "incorrect";
+  
+      selectedChoice.parentElement.classList.add(classToApply);
+  
+      setTimeout(() => {
+        selectedChoice.parentElement.classList.remove(classToApply);
         getNewQuestion();
+    }, 1000);
     });
 });
 

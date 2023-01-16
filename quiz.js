@@ -82,7 +82,7 @@ getNewQuestion = () => {
     availableQuesions.splice(questionIndex, 1);
     acceptingAnswers = true;
 };
-
+// Choices function being either correct / incorrect
 choices.forEach((choice) => {
     choice.addEventListener('click', (e) => {
         if (!acceptingAnswers) return;

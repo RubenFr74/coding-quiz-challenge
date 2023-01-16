@@ -12,6 +12,35 @@
     <!-- Question Layout -->
     <div class="container">
         <div id="game" class="flex-center flex-column">
+            <!-- HUD Display -->
+            <div id="hud-item">
+                <!-- Current Question -->
+                <p class="hud-prefix">
+                    Question
+                </p>
+                <h1 class="hud-main-text" id="questionCounter">
+                    1/5
+                </h1>
+            </div>
+            <!-- Current Score -->
+            <div id="hud-item">
+                <p class="hud-prefix">
+                    Score 
+                </p>
+                <h1 class="hud-main-text" id="score">
+                    0
+                </h1>
+            </div>
+            <!-- Timer -->
+            <div id="hud-item">
+                <p class="hud-prefix">
+                    Time Remaining
+                </p>
+                <h1 class="hud-main-text" id="timeCounter">
+                    0:00
+                </h1>
+            </div>
+            <!-- Question Format -->
             <h2 id="question">What is the answer to this questions?</h2>
         <div class="choice-container">
           <p class="choice-prefix">A</p>

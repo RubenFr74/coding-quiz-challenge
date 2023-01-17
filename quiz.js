@@ -9,7 +9,7 @@ let acceptingAnswers = false;
 let score = 0;
 let questionCounter = 0;
 let availableQuesions = [];
-
+// Questions
 let questions = [
     {
         question: 'Commonly used data types DO NOT include:',
@@ -97,6 +97,12 @@ choices.forEach((choice) => {
 
         const classToApply =
         selectedAnswer == currentQuestion.answer ? "correct" : "incorrect";
+
+        // Correct Score
+        if (classToApply === "correct") {
+            incrementScore(CORRECT_BONUS);
+        }
+  
   
       selectedChoice.parentElement.classList.add(classToApply);
   
@@ -106,6 +112,7 @@ choices.forEach((choice) => {
     }, 1000);
     });
 });
+// Timer Function
 var timeleft = 45;
 var downloadTimer = setInterval(function() {
   timeleft--;
@@ -114,4 +121,11 @@ var downloadTimer = setInterval(function() {
         clearInterval(downloadTimer);
         console.log(`SUBMIT`)
     }},1000);
+
+
+incrementScore = num => {
+    score += num;
+    scoreText.innerText = score;
+};
+
 startGame();

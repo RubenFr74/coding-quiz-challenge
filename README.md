@@ -2,7 +2,7 @@
 
 ## About
 
-This is a small coding qiz game I've made through the use of HTML, CSS, JavaScript from the lessons we have gone through in the Coding Bootcamp
+This is a small coding qiz game I've made through the use of HTML, CSS, and JavaScript from the lessons we have gone through in the Coding Bootcamp
 I am currently attending. It is only five questions long and they pertains only to questions about what we've learned so far. 
 
 It tracks your quiz score and also has a high score page that will reveal the top 5 high scores of the webpage. But if you get an incorrect answer, the 

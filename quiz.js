@@ -87,7 +87,7 @@ getNewQuestion = () => {
     availableQuesions.splice(questionIndex, 1);
     acceptingAnswers = true;
 };
-// Choices function being either correct / 
+// Choices function being either correct / incorrect
 choices.forEach((choice) => {
     choice.addEventListener('click', (e) => {
         if (!acceptingAnswers) return;
@@ -103,8 +103,10 @@ choices.forEach((choice) => {
         if (classToApply === "correct") {
             incrementScore(CORRECT_BONUS);
         }
-  
-  
+        // Incorrect decrement to time
+        if (classToApply === "incorrect") {
+        timeleft = timeleft-4
+        }
       selectedChoice.parentElement.classList.add(classToApply);
   
       setTimeout(() => {
@@ -118,9 +120,11 @@ var timeleft = 45;
 var downloadTimer = setInterval(function() {
   timeleft--;
     document.getElementById("timeCounter").textContent = timeleft;
-    if(timeleft <= 0) {
+    if(timeleft <= 1) {
         clearInterval(downloadTimer);
-        console.log(`SUBMIT`)
+        localStorage.setItem("mostRecentScore", score);
+        return window.location.assign('/end.html');
+        
     }},1000);
 
 // Adds Ten points per correct answer

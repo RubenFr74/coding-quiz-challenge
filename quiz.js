@@ -116,7 +116,7 @@ choices.forEach((choice) => {
     });
 });
 // Timer Function
-var timeleft = 45;
+var timeleft = 35;
 var downloadTimer = setInterval(function() {
   timeleft--;
     document.getElementById("timeCounter").textContent = timeleft;

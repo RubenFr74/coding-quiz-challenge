@@ -9,7 +9,7 @@ let acceptingAnswers = false;
 let score = 0;
 let questionCounter = 0;
 let availableQuesions = [];
-// Questions
+// Questions List
 let questions = [
     {
         question: 'Commonly used data types DO NOT include:',
@@ -67,7 +67,7 @@ startGame = () => {
 
 getNewQuestion = () => {
     if (availableQuesions.length === 0 || questionCounter >= MAX_QUESTIONS) {
-        //go to the end page
+        //Go to the end page
         return window.location.assign('/end.html');
     }
     
@@ -122,7 +122,7 @@ var downloadTimer = setInterval(function() {
         console.log(`SUBMIT`)
     }},1000);
 
-
+// Adds Ten points per correct answer
 incrementScore = num => {
     score += num;
     scoreText.innerText = score;

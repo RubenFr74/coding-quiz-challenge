@@ -69,7 +69,7 @@ getNewQuestion = () => {
     if (availableQuesions.length === 0 || questionCounter >= MAX_QUESTIONS) {
         localStorage.setItem("mostRecentScore", score);
         //Go to the end page
-        return window.location.assign('/end.html');
+        return window.location.assign('end.html');
     }
     
     questionCounter++;
@@ -123,7 +123,7 @@ var downloadTimer = setInterval(function() {
     if(timeleft <= 1) {
         clearInterval(downloadTimer);
         localStorage.setItem("mostRecentScore", score);
-        return window.location.assign('/end.html');
+        return window.location.assign('end.html');
         
     }},1000);
 
